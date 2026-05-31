@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ZiltiQS • Éditeur Cyber-Ziltik</title>
+  <!-- Polices Fira Code & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Layout principal 3 colonnes -->
+  <div class="app-shell">
+    <!-- Barre latérale gauche : explorateur + console -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+          <span class="logo-text">ZiltiQS</span>
+        </div>
+        <span class="version">v1.0.0</span>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="section-title">EXPLORATEUR</div>
+        <div class="file-tree" id="fileTree">
+          <!-- Les fichiers seront injectés par JS -->
+        </div>
+      </div>
+
+      <div class="sidebar-actions">
+        <button class="btn-download" id="btnDownloadProject" title="Télécharger le projet complet (HTML)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Projet
+        </button>
+      </div>
+
+      <div class="sidebar-section console-section">
+        <div class="section-title">CONSOLE</div>
+        <div class="console-output" id="consoleOutput">
+          <div class="console-placeholder">Prêt pour l'exécution…</div>
+        </div>
+        <button class="btn-clear-console" id="btnClearConsole" title="Effacer la console">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Effacer
+        </button>
+      </div>
+    </aside>
+
+    <!-- Zone centrale : barre d'onglets + éditeur -->
+    <main class="editor-panel">
+      <div class="tabs-bar" id="tabsBar">
+        <!-- Onglets dynamiques -->
+      </div>
+      <div class="editor-wrapper" id="editorWrapper">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <div class="code-area">
+          <pre id="codeHighlight" class="language-html"></pre>
+          <textarea id="codeInput" spellcheck="false" placeholder="Commencez à coder…"></textarea>
+        </div>
+      </div>
+    </main>
+
+    <!-- Zone droite : projecteur live -->
+    <section class="projector-panel">
+      <div class="projector-header">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="projector-url">ziltiqs.local/projecteur</span>
+        <button class="btn-refresh" id="btnRefreshProjector" title="Forcer la projection (Ctrl+S)">⟳</button>
+      </div>
+      <div class="projector-frame-container">
+        <iframe id="projectorFrame" sandbox="allow-scripts" title="Projecteur ZiltiQS"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <!-- Script principal -->
+  <script src="app.js"></script>
+</body>
+        </html>
